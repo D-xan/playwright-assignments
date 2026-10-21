@@ -1,0 +1,27 @@
+{
+  "name": "automation-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5"
+  },
+  "scripts": {
+    "assignment1": "playwright test tests/Assignment-1 --project=chromium",
+    "assignment2": "playwright test tests/Assignment-2 --project=chromium",
+    "assignment3": "playwright test tests/Assignment-2 --project=chromium --ui",
+    "assignment4": "playwright test tests/Assignment-2 --project=chromium --debug",
+    "assignment5": "playwright test tests/Assignment-5 --project=chromium",
+    "assignment5:headed": "playwright test tests/Assignment-5 --project=chromium --headed",
+    "assignment6:record": "playwright codegen --target=playwright-test --output=tests/Assignment-6/Assignment-6.spec.ts https://www.urbanladder.com/",
+    "assignment6": "playwright test tests/Assignment-6 --project=chromium --headed",
+    "assignment7": "node -e \"const fs=require('fs');const d=fs.readdirSync('test-results').find(n=>n.startsWith('Assignment-5'));if(!d){console.error('Run npm run assignment5 first');process.exit(1)}require('child_process').spawnSync('npx',['playwright','show-trace','test-results/'+d+'/trace.zip'],{stdio:'inherit'})\"",
+    "all": "playwright test --project=chromium --workers=1",
+    "report": "playwright show-report"
+  }
+}
